@@ -1,0 +1,17 @@
+﻿生成启动时间为 2017/3/5 星期日 下午 6:30:17。
+     1>项目“F:\OpenGL ES\Test\OpenGL-ES-TEST\OpenGL-ES-TEST\OpenGL-ES-TEST.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt HelloTrangle.cpp
+         HelloTrangle.cpp
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\OpenGL ES\Test\OpenGL-ES-TEST\Debug\OpenGL-ES-TEST.exe" /INCREMENTAL /NOLOGO glfw3.lib opengl32.lib glew32s.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\OpenGL ES\Test\OpenGL-ES-TEST\Debug\OpenGL-ES-TEST.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\OpenGL ES\Test\OpenGL-ES-TEST\Debug\OpenGL-ES-TEST.lib" /MACHINE:X86 Debug\Common.obj
+         Debug\HelloTrangle.obj
+         Debug\main.obj
+         Debug\test10.obj
+     1>LINK : warning LNK4098: 默认库“LIBCMT”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+         OpenGL-ES-TEST.vcxproj -> F:\OpenGL ES\Test\OpenGL-ES-TEST\Debug\OpenGL-ES-TEST.exe
+     1>已完成生成项目“F:\OpenGL ES\Test\OpenGL-ES-TEST\OpenGL-ES-TEST\OpenGL-ES-TEST.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:07.08
