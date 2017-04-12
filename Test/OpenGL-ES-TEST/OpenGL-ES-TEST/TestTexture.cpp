@@ -30,7 +30,7 @@ char TestTexture_fShaderStr[] =
 	"void main() 								\n"
 	"{ 											\n"
 	"	vec2 temp = vec2(1 -TexCoord.x, 1 - TexCoord.y);\n"
-	"	vec4 texColor = mix(texture(ourTexture1, temp),texture(ourTexture2, temp), 0.0);\n"
+	"	vec4 texColor = mix(texture(ourTexture1, temp),texture(ourTexture2, temp), 0.2);\n"
 	"	if(texColor.a < 0.1)					\n"
 	"	{                                       \n"
 	"		discard;							\n"
@@ -40,74 +40,9 @@ char TestTexture_fShaderStr[] =
 	"	fragColor = texColor;\n"
 	"} 											\n";
 
-GLuint 	TestTexture::loadShader(GLenum type,const char* shaderSrc){
-	GLuint shader;
-	GLint compiled;
-
-	//Create the shader object
-	shader = glCreateShader(type);
-
-	if(shader == 0)
-	{
-		return 0;
-	}
-
-	//load the shader source
-	glShaderSource(shader, 1, &shaderSrc, NULL);
-
-	//Compile the shader
-	glCompileShader(shader);
-
-	//check the compile statsu
-	glGetShaderiv(shader, GL_COMPILE_STATUS, &compiled);
-
-	if(!compiled){
-		GLint infoLen = 0;
-
-		glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &infoLen);
-
-		if(infoLen > 0){
-			char infoLog[512];
-			glGetShaderInfoLog(shader, 512, NULL, infoLog);
-			std::cout << "ERROR::SHADER::COMPILE::FAILED::" << infoLog << std::endl;
-		}
-
-		glDeleteShader(shader);
-		return 0;
-	}
-	return shader;
-}
-
-GLuint TestTexture::loadProgram(char* cVShader, char* cFShader)
-{
-	GLint success;
-    GLchar infoLog[512];
-
-	GLuint vShader = this->loadShader(GL_VERTEX_SHADER, cVShader);
-	GLuint fShader = this->loadShader(GL_FRAGMENT_SHADER, cFShader);
-
-	GLuint program = glCreateProgram();
-	glAttachShader(program, vShader);
-	glAttachShader(program, fShader);
-	glLinkProgram(program);
-
-	glGetProgramiv(program, GL_LINK_STATUS, &success);
-	if(!success){
-        glGetProgramInfoLog(program,512,NULL,infoLog);
-        std::cout << "ERROR:PROGRAM:LINK_FAILED\n" << infoLog << std::endl;
-		return 0;
-    }
-	glUseProgram(program);
-	
-    glDeleteShader(vShader);
-    glDeleteShader(fShader);
-
-	return program;
-}
-
 void TestTexture::Init()
 {
-	program = loadProgram(TestTexture_vShaderStr, TestTexture_fShaderStr);
+	Base::Init(TestTexture_vShaderStr, TestTexture_fShaderStr);
 
 	int width, height;
 	unsigned char* image = SOIL_load_image("container.jpg", &width, &height, 0, SOIL_LOAD_RGB);
@@ -146,12 +81,12 @@ void TestTexture::Init()
 	//	-0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f,   // 左上
 	//	-0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f    // 左下
 	//};
-		GLfloat vertices[] = {
+	GLfloat vertices[] = {
 	//     ---- 位置 ----       ---- 颜色 ----     - 纹理坐标 -
-		 1.0f,  1.0f, 0.0f,   1.0f, 0.0f, 0.0f,   0.6f, 0.6f,   // 右上
-		 1.0f, -1.0f, 0.0f,   0.0f, 1.0f, 0.0f,   0.6f, 0.5f,   // 右下
-		-1.0f,  1.0f, 0.0f,   1.0f, 1.0f, 0.0f,   0.5f, 0.6f,   // 左上
-		-1.0f, -1.0f, 0.0f,   0.0f, 0.0f, 1.0f,   0.5f, 0.5f    // 左下
+		 0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // 右上
+		 0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,   // 右下
+		-0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f,   // 左上
+		-0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f    // 左下
 	};
 
 	glGenVertexArrays(1, &VAO);

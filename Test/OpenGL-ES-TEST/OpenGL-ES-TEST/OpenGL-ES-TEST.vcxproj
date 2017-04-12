@@ -68,18 +68,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Base.cpp" />
     <ClCompile Include="Common.cpp" />
     <ClCompile Include="HelloTrangle.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="test10.cpp" />
     <ClCompile Include="TestTexture.cpp" />
+    <ClCompile Include="Transfrom.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Base.h" />
     <ClInclude Include="Common.h" />
+    <ClInclude Include="headFile.h" />
     <ClInclude Include="HelloTrangle.h" />
     <ClInclude Include="test10.h" />
     <ClInclude Include="TestTexture.h" />
+    <ClInclude Include="Transfrom.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="container.jpg" />

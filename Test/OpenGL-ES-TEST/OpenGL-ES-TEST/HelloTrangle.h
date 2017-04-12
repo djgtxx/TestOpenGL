@@ -8,7 +8,5 @@ public:
 	virtual void Init();
 	virtual void Draw();
 private:
-	GLuint 	loadShader(GLenum type,const char* shaderSrc);
-	GLuint shaderProgram;
 };
 
