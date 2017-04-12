@@ -30,6 +30,9 @@
     <ClCompile Include="HelloTrangle.cpp">
       <Filter>源文件\HelloTrangle</Filter>
     </ClCompile>
+    <ClCompile Include="TestTexture.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="test10.h">
@@ -44,5 +47,13 @@
     <ClInclude Include="HelloTrangle.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="TestTexture.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="container.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
   </ItemGroup>
 </Project>

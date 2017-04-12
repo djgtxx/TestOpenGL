@@ -1,9 +1,10 @@
 #include "test10.h"
 #include "Common.h"
+#include "TestTexture.h"
 
 int main()
 {
-	Test10 *test = new Test10();
+	Base *test = new TestTexture();
 
     StartDraw(test);
 
